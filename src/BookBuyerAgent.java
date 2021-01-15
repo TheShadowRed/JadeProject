@@ -36,6 +36,7 @@ public class BookBuyerAgent extends Agent {
 	private String targetBookTitle;
 
 	private int Money;
+	private int BussFare;
 	private String Location;
 	// The list of known seller agents
 	private AID[] sellerAgents;
@@ -140,8 +141,8 @@ public class BookBuyerAgent extends Agent {
 						String Destination=temp[1];
 						//get transportfee
 						BussCompany cls = new BussCompany();
-						int bussfee=cls.GetBussPrice(Location,Destination);
-						price=price+bussfee;
+						BussFare=cls.GetBussPrice(Location,Destination);
+						price=price+BussFare;
 						if (bestSeller == null || price < bestPrice) {
 							// This is the best offer at present
 							bestPrice = price;
@@ -190,6 +191,8 @@ public class BookBuyerAgent extends Agent {
 						// Purchase successful. We can terminate
 						System.out.println(targetBookTitle+" successfully purchased from agent "+reply.getSender().getName());
 						System.out.println("Price = "+bestPrice);
+						System.out.println("Current Money = "+Money);
+						System.out.println("Buss Fare was = "+BussFare);
 						myAgent.doDelete();
 					}
 					else {
