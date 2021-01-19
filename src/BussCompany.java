@@ -11,7 +11,7 @@ public class BussCompany {
         Iterator itr=al.iterator();
         while(itr.hasNext()){
             BussRoutes st=(BussRoutes)itr.next();
-            if(st.Departure==CurrentLocation && st.Arival==Destination)
+            if(st.Departure.equals(CurrentLocation) && st.Arival.equals(Destination))
             {
                 returnid= st.Price;
                 break;
@@ -21,9 +21,10 @@ public class BussCompany {
     }
     public void GenerateBussPrices()
     {
-        BussRoutes s1=new BussRoutes("Craiova","Bucuresti",10);
-
+        BussRoutes s1=new BussRoutes("Bucuresti","Craiova",10);
+        BussRoutes s1Invers=new BussRoutes("Craiova","Bucuresti",10);
         al.add(s1);
+        al.add(s1Invers);
 
     }
     class BussRoutes{

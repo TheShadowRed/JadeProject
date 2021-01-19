@@ -143,6 +143,7 @@ public class BookBuyerAgent extends Agent {
 						BussCompany cls = new BussCompany();
 						BussFare=cls.GetBussPrice(Location,Destination);
 						price=price+BussFare;
+						System.out.println("buss Fare is :"+BussFare);
 						if (bestSeller == null || price < bestPrice) {
 							// This is the best offer at present
 							bestPrice = price;
